@@ -1,0 +1,17 @@
+h1 {
+  color: blue;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+#temperature {
+  font-size: 48px;
+}
+.weather-icon,
+.units {
+  vertical-align: top;
+}
+.units a {
+  text-decoration: none;
+}
