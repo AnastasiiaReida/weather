@@ -12,6 +12,12 @@ ul {
 .units {
   vertical-align: top;
 }
+.units a {
+  text-decoration: none;
+}
 a {
   text-decoration: none;
+}
+li::first-letter {
+  text-transform: capitalize;
 }
