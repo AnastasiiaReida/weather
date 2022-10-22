@@ -21,3 +21,10 @@ a {
 li::first-letter {
   text-transform: capitalize;
 }
+.units .active {
+  color: black;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
+}
