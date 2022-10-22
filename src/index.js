@@ -37,7 +37,11 @@ function displayTemperature(response) {
 
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = weather.description;
-  weatherIconElement.src = `http://openweathermap.org/img/wn/${weather.icon}@2x.png`;
+  weatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${weather.icon}@2x.png`
+  );
+  weatherIconElement.setAttribute("alt", weather.description);
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   precipitationElement.innerHTML = response.data.clouds.all;
   humidityElement.innerHTML = response.data.main.humidity;
