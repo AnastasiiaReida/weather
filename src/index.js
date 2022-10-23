@@ -69,8 +69,7 @@ function showPosition(position) {
 function showCurrentLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-function changeTemperature(units, event) {
-  event.preventDefault();
+function changeTemperature(units) {
   let temperatureElement = document.querySelector("#temperature");
   if ((units = "fahrenheit")) {
     celsiusLinkElement.classList.remove("active");
