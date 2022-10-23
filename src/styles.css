@@ -1,3 +1,6 @@
+.card {
+  color: #70757a;
+}
 h1 {
   color: blue;
 }
@@ -7,6 +10,7 @@ ul {
 }
 #temperature {
   font-size: 48px;
+  color: black;
 }
 .weather-icon,
 .units {
@@ -27,4 +31,18 @@ li::first-letter {
 }
 .units .active:hover {
   text-decoration: none;
+}
+.weather-forecast {
+  margin-top: 20px;
+  color: black;
+}
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.4;
+}
+.weather-forecast-temperature {
+  font-size: 13px;
+}
+.weather-forecast-temperature-min {
+  opacity: 0.4;
 }
