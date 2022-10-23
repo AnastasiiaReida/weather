@@ -69,17 +69,19 @@ function showPosition(position) {
 function showCurrentLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-function changeTemperature(units) {
+function displayFahrenheit(event) {
+  event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  if (units === "fahrenheit") {
-    celsiusLinkElement.classList.remove("active");
-    fahrenheitLinkElement.classList.add("active");
-    temperatureElement.innerHTML = Math.round((curTemp * 9) / 5 + 32);
-  } else {
-    fahrenheitLinkElement.classList.remove("active");
-    celsiusLinkElement.classList.add("active");
-    temperatureElement.innerHTML = Math.round(curTemp);
-  }
+  celsiusLinkElement.classList.remove("active");
+  fahrenheitLinkElement.classList.add("active");
+  temperatureElement.innerHTML = Math.round((curTemp * 9) / 5 + 32);
+}
+function displayCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  fahrenheitLinkElement.classList.remove("active");
+  celsiusLinkElement.classList.add("active");
+  temperatureElement.innerHTML = Math.round(curTemp);
 }
 
 let apiKey = "e0a5a97de9a0b7a951e9d154a8f9bad8";
@@ -92,9 +94,6 @@ let fahrenheitLinkElement = document.querySelector("#fahrenheit-link");
 
 formElement.addEventListener("submit", search);
 currentLocationElement.addEventListener("click", showCurrentLocation);
-fahrenheitLinkElement.addEventListener(
-  "click",
-  changeTemperature("fahrenheit")
-);
-celsiusLinkElement.addEventListener("click", changeTemperature("celsius"));
+fahrenheitLinkElement.addEventListener("click", displayFahrenheit);
+celsiusLinkElement.addEventListener("click", displayCelsius);
 showCurrentLocation();
