@@ -71,7 +71,7 @@ function showCurrentLocation() {
 }
 function changeTemperature(units) {
   let temperatureElement = document.querySelector("#temperature");
-  if ((units = "fahrenheit")) {
+  if (units === "fahrenheit") {
     celsiusLinkElement.classList.remove("active");
     fahrenheitLinkElement.classList.add("active");
     temperatureElement.innerHTML = Math.round((curTemp * 9) / 5 + 32);
@@ -92,9 +92,9 @@ let fahrenheitLinkElement = document.querySelector("#fahrenheit-link");
 
 formElement.addEventListener("submit", search);
 currentLocationElement.addEventListener("click", showCurrentLocation);
-celsiusLinkElement.addEventListener("click", changeTemperature("celsius"));
 fahrenheitLinkElement.addEventListener(
   "click",
   changeTemperature("fahrenheit")
 );
+celsiusLinkElement.addEventListener("click", changeTemperature("celsius"));
 showCurrentLocation();
