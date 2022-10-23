@@ -30,43 +30,47 @@ function formatweakDays(timestamp) {
 }
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  let daily = response.data.daily;
+  let daily = response.data.days;
   let forecastHTML = "";
-  forecastHTML = forecastHTML + `<div class="col-6 row">`;
+  let numColum = 8;
+
+  forecastHTML = forecastHTML + `<div class="col-12 col-sm-6 row">`;
   daily.forEach(function (dailyDay, index) {
-    if (index === 4) {
+    if (index < numColum) {
+      if (index === 4) {
+        forecastHTML =
+          forecastHTML +
+          `</div>
+            <div class="col-12 col-sm-6 row">`;
+      }
       forecastHTML =
         forecastHTML +
-        `</div>
-            <div class="col-6 row">`;
-    }
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-3">
+        `<div class="col-3">
             <div class="weather-forecast-date">${formatweakDays(
-              dailyDay.dt
+              dailyDay.datetimeEpoch
             )}</div>
             <img
-              src="http://openweathermap.org/img/wn/${
-                dailyDay.weather[0].icon
-              }@2x.png"
-              alt="Overcast clouds"
+              src="images/${dailyDay.icon}.png"
+              alt="${dailyDay.icon}"
               width="36"
             />
             <div class="weather-forecast-temperature">
-              ${Math.round(dailyDay.temp.max)}° /
+              ${Math.round(dailyDay.tempmax)}° /
               <div class="weather-forecast-temperature-min">${Math.round(
-                dailyDay.temp.min
+                dailyDay.tempmin
               )}°</div>
             </div>
           </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
 
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiKey = "U8L65PTB7DY7FNRHAZ9SD98MX";
+  let apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${coordinates.lat},${coordinates.lon}?key=${apiKey}&unitGroup=metric`;
+  //`https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 function displayTemperature(response) {

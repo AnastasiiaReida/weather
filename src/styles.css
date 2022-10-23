@@ -36,6 +36,10 @@ li::first-letter {
   margin-top: 20px;
   color: black;
 }
+.weather-forecast .row {
+  margin: 0;
+  padding: 0;
+}
 .weather-forecast-date {
   font-size: 16px;
   opacity: 0.4;
@@ -46,4 +50,7 @@ li::first-letter {
 .weather-forecast-temperature-min {
   opacity: 0.4;
   display: inline;
+}
+.search-form {
+  margin-top: 20px;
 }

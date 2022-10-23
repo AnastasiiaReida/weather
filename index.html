@@ -20,7 +20,7 @@
 
   <body>
     <div class="container">
-      <div class="card">
+      <div class="card col-12 col-md-10 col-lg-6">
         <form class="search-form" id="city-form">
           <div class="row">
             <div class="col-6">
@@ -33,11 +33,18 @@
                 class="form-control"
               />
             </div>
-            <div class="col-2">
-              <input type="submit" value="Search" class="form-control" />
+            <div class="col-2 p-0">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary"
+              />
             </div>
             <div class="col-4">
-              <button class="form-control" id="current-location">
+              <button
+                class="form-control btn btn-primary"
+                id="current-location"
+              >
                 Current Location
               </button>
             </div>
@@ -71,7 +78,7 @@
             </div>
           </div>
           <div class="row weather-forecast" id="forecast">
-            <div class="col-6 row">
+            <div class="col-12 col-sm-6 row">
               <div class="col-3">
                 <div class="weather-forecast-date">Sun</div>
                 <img
@@ -121,7 +128,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 row">
+            <div class="col-12 col-sm-6 row">
               <div class="col-3">
                 <div class="weather-forecast-date">Thu</div>
                 <img
@@ -174,7 +181,7 @@
           </div>
         </div>
       </div>
-      <div>
+      <div class="col-12 col-md-10 col-lg-6">
         <a href="https://github.com/AnastasiiaReida/weather" target="_blank"
           >Open-source code</a
         >
