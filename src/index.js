@@ -23,6 +23,34 @@ function formatDate(timestamp) {
   let formattedDate = `: ${day} ${hour}:${minute}`;
   return formattedDate;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu"];
+  let rows = [1, 2];
+  let forecastHTML = "";
+  rows.forEach(function () {
+    forecastHTML = forecastHTML + `<div class="col-6 row">`;
+    days.forEach(function (day) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-3">
+            <div class="weather-forecast-date">${day}</div>
+            <img
+              src="http://openweathermap.org/img/wn/04d@2x.png"
+              alt="Overcast clouds"
+              width="36"
+            />
+            <div class="weather-forecast-temperature">
+              18° /
+              <div class="weather-forecast-temperature-min">7°</div>
+            </div>
+          </div>`;
+    });
+    forecastHTML = forecastHTML + `</div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
 function displayTemperature(response) {
   let weather = response.data.weather[0];
   let cityElement = document.querySelector("#city");
@@ -35,6 +63,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
 
   curTemp = response.data.main.temp;
+  displayForecast();
 
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = weather.description;
